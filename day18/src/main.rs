@@ -54,7 +54,10 @@ fn magnitude(mut num: Vec<Node>) -> usize {
         while i < num.len()-1 {
             if num[i].depth == depth {
                 if num[i].depth == num[i+1].depth {
-                    num[i] = Node { depth: num[i].depth-1, value: num[i].value*3 + num[i+1].value*2 };
+                    num[i] = Node { 
+                        depth: num[i].depth-1, 
+                        value: num[i].value*3 + num[i+1].value*2
+                    };
                     num.remove(i+1);
                 }
             }
@@ -92,13 +95,6 @@ fn reduce_sf_num(num: &mut SnailfishNumber) {
             break;
         }
     }
-}
-
-fn print_sf(num: &SnailfishNumber) {
-    for n in num {
-        print!("{}:{},", n.value, n.depth);
-    }
-    println!("");
 }
 
 fn part_one(input: &Vec<String>) -> usize {
